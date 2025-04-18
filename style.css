@@ -693,6 +693,41 @@ footer {
 }
 
 /* Responsive Adjustments */
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ffffff;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: #8aff8a;
+}
+
+.main-nav.active {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: #1a1e2e;
+    padding: 1rem;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.main-nav.active ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
 @media (max-width: 992px) {
     .site-header {
         padding: 1.5rem 2rem;
@@ -729,6 +764,10 @@ footer {
         padding: 3rem 2rem;
     }
     
+    .news-section {
+        padding: 3rem 2rem;
+    }
+    
     .footer-content {
         flex-direction: column;
         gap: 3rem;
@@ -742,11 +781,47 @@ footer {
     .footer-links {
         justify-content: space-around;
     }
+    
+    .right-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .student-image {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .rating-box, .stats-box {
+        margin: 0.5rem;
+    }
 }
 
 @media (max-width: 768px) {
+    .site-header {
+        padding: 1.2rem 1.5rem;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    
+    .menu-toggle {
+        display: block;
+        order: 3;
+    }
+    
+    .header-actions {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+        order: 2;
+    }
+    
     .main-nav {
-        display: none; /* Hide nav on smaller screens, implement mobile menu later */
+        display: none; /* Hidden by default, shown when .active class is added */
+        width: 100%;
     }
     
     .hero-content h1 {
@@ -755,6 +830,22 @@ footer {
     
     .course-list {
         grid-template-columns: 1fr;
+    }
+    
+    .news-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .latest-news-box {
+        padding: 1.5rem;
+    }
+    
+    .news-item {
+        max-width: 100%;
+    }
+    
+    .news-event-img {
+        margin: 0 auto 0.7rem auto;
     }
     
     .footer-links {
@@ -775,6 +866,21 @@ footer {
         padding: 1rem 1.5rem;
     }
     
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .free-trial-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
     .hero-section {
         padding: 2rem 1.5rem;
     }
@@ -786,14 +892,99 @@ footer {
     .hero-buttons {
         flex-direction: column;
         gap: 1rem;
+        width: 100%;
     }
     
-    .get-started-btn {
+    .get-started-btn, .try-free-link {
         width: 100%;
+        text-align: center;
     }
     
     .stats-box {
         width: 150px;
+        padding: 0.8rem;
+    }
+    
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .quote-box {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 1.5rem;
+    }
+    
+    .course-card {
+        padding: 1rem;
+    }
+    
+    .course-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .course-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .news-item h4 {
+        font-size: 1rem;
+    }
+    
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .footer-column {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-logo p {
+        font-size: 0.9rem;
+    }
+    
+    .announcement-banner {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Landscape orientation for mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        padding: 1.5rem;
+    }
+    
+    .hero-content {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .left-content, .right-content {
+        width: 50%;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .student-image {
+        max-width: 200px;
+    }
+    
+    .stats-box {
+        width: 120px;
+        padding: 0.6rem;
+    }
+    
+    .rating-box {
         padding: 0.8rem;
     }
 }
