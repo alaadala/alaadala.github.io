@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Animated Background */
+/* Video Background */
 .bg-container {
     position: fixed;
     top: 0;
@@ -13,11 +13,17 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: url('file:///C:/Users/AYOUB/Downloads/Untitled%20design%20(1).gif');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.15; /* Adjust opacity to ensure text readability */
     pointer-events: none; /* Ensures clicks pass through to elements below */
+}
+
+.bg-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15; /* Adjust opacity to ensure text readability */
 }
 
 /* Announcement Banner */
