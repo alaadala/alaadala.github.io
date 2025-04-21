@@ -8,16 +8,22 @@
 /* Scroll Animation Styles */
 .animate-element {
     transition: opacity 0.8s ease, transform 0.8s ease;
+    -webkit-transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
 }
 
 .animate-hidden {
     opacity: 0;
     transform: translateY(30px);
+    -webkit-transform: translateY(30px);
+    visibility: hidden;
 }
 
 .animate-visible {
     opacity: 1;
     transform: translateY(0);
+    -webkit-transform: translateY(0);
+    visibility: visible;
 }
 
 /* Video Background */
@@ -128,34 +134,62 @@ ul {
     width: 100%;
     opacity: 0;
     transform: translateY(20px);
+    -webkit-transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
     white-space: nowrap; /* Prevent text wrapping */
+    will-change: opacity, transform;
 }
 
 .logo-text.english {
     animation: showEnglish 6s infinite;
+    -webkit-animation: showEnglish 6s infinite;
 }
 
 .logo-text.arabic {
     animation: showArabic 6s infinite;
+    -webkit-animation: showArabic 6s infinite;
 }
 
 @keyframes showEnglish {
     0%, 100% {
         opacity: 1;
         transform: translateY(0);
+        -webkit-transform: translateY(0);
     }
     40% {
         opacity: 1;
         transform: translateY(0);
+        -webkit-transform: translateY(0);
     }
     45% {
         opacity: 0;
         transform: translateY(-20px);
+        -webkit-transform: translateY(-20px);
     }
     95% {
         opacity: 0;
         transform: translateY(20px);
+        -webkit-transform: translateY(20px);
+    }
+}
+
+@-webkit-keyframes showEnglish {
+    0%, 100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+    45% {
+        opacity: 0;
+        -webkit-transform: translateY(-20px);
+    }
+    95% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
     }
 }
 
@@ -163,14 +197,32 @@ ul {
     0%, 40% {
         opacity: 0;
         transform: translateY(20px);
+        -webkit-transform: translateY(20px);
     }
     50%, 90% {
         opacity: 1;
         transform: translateY(0);
+        -webkit-transform: translateY(0);
     }
     95% {
         opacity: 0;
         transform: translateY(-20px);
+        -webkit-transform: translateY(-20px);
+    }
+}
+
+@-webkit-keyframes showArabic {
+    0%, 40% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+    }
+    50%, 90% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+    95% {
+        opacity: 0;
+        -webkit-transform: translateY(-20px);
     }
 }
 

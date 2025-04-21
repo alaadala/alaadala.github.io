@@ -1,6 +1,20 @@
 // Scroll Animation Script
 
-document.addEventListener('DOMContentLoaded', function() {
+// Use both DOMContentLoaded and window.onload to ensure the script runs
+// This helps with GitHub Pages and other hosting environments
+document.addEventListener('DOMContentLoaded', initAnimations);
+window.onload = initAnimations;
+
+// Track if animations have been initialized
+let animationsInitialized = false;
+
+function initAnimations() {
+    // Only run once
+    if (animationsInitialized) return;
+    animationsInitialized = true;
+    
+    console.log('Initializing scroll animations');
+    
     // Get all elements that should be animated
     const animatedSections = document.querySelectorAll('.hero-section, .courses-section, .news-section, .course-card, .news-item, .latest-news-box');
     
@@ -33,8 +47,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Run once on page load to show elements that are already in viewport
-    handleScrollAnimation();
+    setTimeout(handleScrollAnimation, 100);
     
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScrollAnimation);
-});
+    // Add scroll event listener with throttling for better performance
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (!scrollTimeout) {
+            scrollTimeout = setTimeout(function() {
+                handleScrollAnimation();
+                scrollTimeout = null;
+            }, 20);
+        }
+    });
+}
