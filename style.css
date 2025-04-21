@@ -5,6 +5,21 @@
     box-sizing: border-box;
 }
 
+/* Scroll Animation Styles */
+.animate-element {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Video Background */
 .bg-container {
     position: fixed;
@@ -95,10 +110,68 @@ ul {
     position: relative;
 }
 
-.logo {
+/* Logo Animation */
+.logo-container {
+    position: relative;
+    height: 2rem;
+    width: 150px; /* Increased width to fit both text versions completely */
+    overflow: visible; /* Changed to visible to ensure text isn't cut off */
+}
+
+.logo-text {
     font-size: 2rem;
     font-weight: bold;
     color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.logo-text.english {
+    animation: showEnglish 6s infinite;
+}
+
+.logo-text.arabic {
+    animation: showArabic 6s infinite;
+}
+
+@keyframes showEnglish {
+    0%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    45% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    95% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes showArabic {
+    0%, 40% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    95% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 }
 
 .main-nav ul {
@@ -133,7 +206,7 @@ ul {
     color: #8aff8a; /* Light green on hover */
 }
 
-.free-trial-btn {
+.join-us-btn {
     background-color: #8aff8a; /* Bright green */
     color: #1a1e2e; /* Dark background color */
     padding: 0.6rem 1.2rem;
@@ -142,7 +215,7 @@ ul {
     transition: background-color 0.3s ease;
 }
 
-.free-trial-btn:hover {
+.join-us-btn:hover {
     background-color: #7aee7a; /* Slightly darker green */
 }
 
